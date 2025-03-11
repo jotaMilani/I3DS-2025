@@ -1,126 +1,66 @@
 import "./App.css";
 import MovieCard from "./components/movieCard/MovieCard";
 import Footer from "./components/footer/footer";
+import { useEffect, useState } from "react";
 // import logo from ""
 
-const App =() => {
-  const movies = [
-    {
-      Year: "2014",
-     Type: "Sci-Fi",
-      title: "Interstellar",
-      director: "Christopher Nolan",
-      rating: 8.6,
-      Poster: "https://placehold.co/850x480",
-    },
-    {
-      Year: "2010",
-     Type: "Action",
-      Title: "Inception",
-      boxOffice: "$836.8M",
-      rating: 8.8,
-      Poster: "https://placehold.co/850x480",
-    },
-    {
-      Year: "2010",
-     Type: "Action",
-      Title: "The Expendables",
-      boxOffice: "Não disponível na API",
-      rating: 6.5,
-      Poster: "https://placehold.co/850x480",
-    },
-    {
-      Year: "2010",
-     Type: "Action",
-      Title: "Iron Man 2",
-      boxOffice: "Não disponível na API",
-      rating: 7.0,
-      Poster: "https://placehold.co/850x480",
-    },
-    {
-      Year: "2010",
-     Type: "Action",
-      Title: "Robin Hood",
-      boxOffice: "Não disponível na API",
-      rating: 6.7,
-      Poster: "https://placehold.co/850x480",
-    },
-    {
-      Year: "2010",
-     Type: "Action",
-      Title: "Shutter Island",
-      boxOffice: "Não disponível na API",
-      rating: 8.2,
-      Poster: "https://placehold.co/850x480",
-    },
-    {
-      Year: "2010",
-     Type: "Action",
-      Title: "Kick-Ass",
-      boxOffice: "Não disponível na API",
-      rating: 7.6,
-      Poster: "https://placehold.co/850x480",
-    },
-    {
-      Year: "2010",
-     Type: "Action",
-      Title: "Predators",
-      boxOffice: "Não disponível na API",
-      rating: 6.4,
-      Poster: "https://placehold.co/850x480",
-    },
-    {
-      Year: "2010",
-     Type: "Action",
-      Title: "The A-Team",
-      boxOffice: "Não disponível na API",
-      rating: 6.6,
-      Poster: "https://placehold.co/850x480",
-    },
-    {
-      Year: "2010",
-     Type: "Action",
-      Title: "Clash of the Titans",
-      boxOffice: "Não disponível na API",
-      rating: 5.8,
-      Poster: "https://placehold.co/850x480",
-    },
-    {
-      Year: "2010",
-     Type: "Action",
-      Title: "Salt",
-      boxOffice: "Não disponível na API",
-      rating: 6.5,
-      Poster: "https://placehold.co/850x480",
-    },
-  ];
-  
+const App = () => {
+  const [search, setSearch] = useState("");
+  const [movies, setMovies] = useState([]);
+
+  //Utilizando chave de API do arquivo .env
+  const apiKey = import.meta.env.VITE_OMDB_API_KEY;
+  const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
+
+  useEffect(() => {
+    searchMovies("dexter");
+  }, []);
+
+  const searchMovies = async (title) => {
+    const response = await fetch(`${apiUrl}&S=${title}`);
+    const data = await response.json();
+
+    setMovies(data.Search);
+  };
+
+  const handleKeypress = (e) => {
+    e.key === "Enter" && searchMovies(search);
+  };
+
   return (
     <div id="app">
+      <h1>Olá</h1>
+      <img src="https://placehold.co/200x200" alt="" />
 
-   <img src="https://placehold.co/200x200" alt="" />
+      <div className="search">
+        <input
+          onKeyDown={handleKeypress}
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Pesquise por filmes"
+        />
 
-<div className="search">
-   <input type="text" placeholder="Pesquise por filmes" />
+        <img 
+        onClick={() => searchMovies(search)}
+        src={"https://placehold.co/20x20"} 
+        alt="" />
+      </div>
 
-   <img src="https://placehold.co/20x20" alt="" />
-    </div>
-
-{movies.map((movie,index)=>(
-  <MovieCard key={index}{...movie} />
-
+{movies?.length > 0 ?(
+  <div className="container">
+ {movies.map((movie, index) => (
+        <MovieCard key={index} {...movie} />
+      ))}
+  </div>
+) : (
+  <h2 className="empty"> Filme Not Found</h2>
 )
+}
+     
 
-)}
-
-
-<Footer
-devName={"Milani"}
-devLink={"https://github.com/jotaMilani"}
-/>
-
+      <Footer devName={"Milani"} devLink={"https://github.com/jotaMilani"} />
     </div>
   );
-}
+};
 
-export default App
+export default App;
