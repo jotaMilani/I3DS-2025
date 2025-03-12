@@ -1,0 +1,17 @@
+footer {
+    text-align: center;
+    font-size: 20px;
+    padding: 24px;
+    font-weight: bolder;
+    color: #ffffff;
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: #f10000;
+  }
+  
+  footer p ion-icon {
+    color: #ff0000;
+  }
+  

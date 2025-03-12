@@ -2,7 +2,8 @@ import "./App.css";
 import MovieCard from "./components/movieCard/MovieCard";
 import Footer from "./components/footer/footer";
 import { useEffect, useState } from "react";
-// import logo from ""
+import Logo from "./assets/devflix.png";
+import Lupa from "./assets/search.svg"
 
 const App = () => {
   const [search, setSearch] = useState("");
@@ -29,8 +30,8 @@ const App = () => {
 
   return (
     <div id="app">
-      <h1>Olá</h1>
-      <img src="https://placehold.co/200x200" alt="" />
+      
+      <img src={Logo} alt="" />
 
       <div className="search">
         <input
@@ -42,7 +43,7 @@ const App = () => {
 
         <img 
         onClick={() => searchMovies(search)}
-        src={"https://placehold.co/20x20"} 
+        src={Lupa} 
         alt="" />
       </div>
 
