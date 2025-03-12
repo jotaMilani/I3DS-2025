@@ -1,13 +1,40 @@
-.Header {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #333;
-    color: #fff;
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #242424;
 }
 
-.Fonte{
-    font-size: 1.5rem;
-    font-weight: 600;
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s;
+cursor: pointer;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+#Fechar {
+color: #000;
+}
+
+#Fechar:hover {
+background-color: red;
 }
