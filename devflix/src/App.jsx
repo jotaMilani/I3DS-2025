@@ -10,7 +10,8 @@ const App = () => {
   const [movies, setMovies] = useState([]);
 
   //Utilizando chave de API do arquivo .env
-  const apiKey = import.meta.env.VITE_OMDB_API_KEY;
+  // const apiKey = import.meta.env.VITE_OMDB_API_KEY;
+  const apiKey = "e4d557fa"
   const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const App = () => {
 {movies?.length > 0 ?(
   <div className="container">
  {movies.map((movie, index) => (
-        <MovieCard key={index} {...movie} />
+        <MovieCard key={index} apiUrl={apiUrl} {...movie} />
       ))}
   </div>
 ) : (
