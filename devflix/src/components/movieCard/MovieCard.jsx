@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MovieDescription from "../../movieDescription/movieDescription";
+import MovieDescription from "../movieDescription/movieDescription";
 import styles from "./MovieCard.module.css";
 
 const MovieCard = ({ apiUrl, ...props }) => {
