@@ -1,6 +1,6 @@
 import "./App.css";
 import MovieCard from "./components/movieCard/MovieCard";
-import Footer from "./components/footer/footer";
+import Footer from "./components/footer/Footer";
 import { useEffect, useState } from "react";
 import Logo from "./assets/devflix.png";
 import Lupa from "./assets/search.svg"
