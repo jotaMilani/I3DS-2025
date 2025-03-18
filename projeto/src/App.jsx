@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./components/header/header";
-import Perfil from "./components/img/romero.gif"
+import Perfil from "./components/img/romero.gif";
 const App = () => {
   return (
       <div id="App">
@@ -13,7 +13,8 @@ const App = () => {
         <div class="geral">
         <div class="card-client">
           <div class="user-picture">
-        <img src="./components/img/romero.gif" alt="" />
+          <img src={Perfil} alt="Perfil de João Milani" />
+
           </div>
           <p class="name-client">
             {" "}
