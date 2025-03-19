@@ -13,10 +13,10 @@ const Header = () => {
               <a onClick={() => setIsModalOpen(true)}>Sobre Mim</a>
             </li>
             <li>
-              <a href="https://github.com/jotaMilani">Projetos</a>
+              <a target="_blank"href="https://github.com/jotaMilani">Projetos</a>
             </li>
             <li>
-              <a href="https://wa.me/5577991184774?text=ol%C3%A1">Contato</a>
+              <a target="_blank"href="https://wa.me/5577991184774?text=ol%C3%A1" >Contato</a>
             </li>
           </ul>
         </nav>
