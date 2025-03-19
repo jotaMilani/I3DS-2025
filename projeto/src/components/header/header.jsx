@@ -16,7 +16,7 @@ const Header = () => {
               <a href="https://github.com/jotaMilani">Projetos</a>
             </li>
             <li>
-              <a href="https://www.whatsapp.com/?lang=pt_BR">Contato</a>
+              <a href="https://wa.me/5577991184774?text=ol%C3%A1">Contato</a>
             </li>
           </ul>
         </nav>
